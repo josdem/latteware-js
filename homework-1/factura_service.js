@@ -1,4 +1,11 @@
-var inquirer = require('inquirer')
+/*
+ * Hacer un programa(archivo de Node.js) que inicie con un array de 10 objects, en el cual cada objeto representa una factura.
+ * Cada factura debe de tener una descripción, un costo antes de I.V.A. y folio. Pueden agregar cuantos atributos extra deseen a su objetos facturas.
+ * Hacer una function que calcule el total de las facturas antes de I.V.A, el total del I.V.A de todas las facturas y el total de las facturas incluyendo I.V.A.
+ * Esta función deberá regresar un objeto con estos 3 valores. Una vez que tengan estos valores, imprimirlos en terminal.
+ *
+ * author: josdem
+ */
 
 function createFactura(folio, subtotal, description){
   var factura = new Object()
