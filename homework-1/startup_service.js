@@ -2,6 +2,9 @@
  * Hacer un programa(archivo de Node.js) que contenga un array de 10 objects, en el cual cada objeto representa un asistente a un Startup Weekend.
  * Cada asistente de startup weekend deberá de tener nombre, email, perfil (negocios, diseño o programador), ciudad de origen y edad.
  *
+ * Usando Inquirer, hacer que el programa pregunte que tipo de perfil deseamos consultar y basado en este perfil,
+ * el programa deberá de imprimir en terminal a todos los asistentes de ese perfil.
+ *
  * author: josdem
  */
 
