@@ -11,7 +11,7 @@ var placeSchema = new Schema({
   name: String,
   description: String,
   address: String,
-  city: String
+  city: Number
 })
 
 var Place = mongoose.model('Place', placeSchema)
@@ -40,7 +40,18 @@ application.get('/listing', function (request, response) {
 })
 
 application.post('/create', function(request, response){
+  Place.create({
+    name: request.body.name,
+    description: request.body.description,
+    address: request.body.address,
+    city: request.body.city
+  }, function(error, document){
+    if(error){
+      return response.send(500, 'Internal Server Error')
+    }
 
+    response.redirect('/')
+  })
 })
 
 application.listen(3000, function () {
