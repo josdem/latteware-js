@@ -54,6 +54,20 @@ application.get('/city/:city', function(request, response){
   })
 })
 
+application.get('/city/:city/:uuid', function(request, response){
+  Place.find({'uuid':request.params.uuid}, function(error, place){
+    if(error){
+      return response.send(500, 'Internal Server Error')
+    }
+
+    response.render("advertise", {
+      title: 'Advertise',
+      place: place
+    })
+  })
+})
+
+
 application.post('/create', function(request, response){
   Place.create({
     name: request.body.name,
