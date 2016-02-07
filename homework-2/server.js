@@ -24,9 +24,10 @@ swig.setDefaults({cache:false})// <-- Cambiar a true en produccion
 // Agregamos body parser a express
 app.use( bodyParser.urlencoded({ extended:false }) )
 
-// Declara tus url handlers en este espacio
-app.get('/', function (req, res) {
- res.send('Empezamos la tarea')
+app.get('/', function (request, response) {
+  response.render("index", {
+    title: "AirBnb"
+  })
 })
 
 // Termina la declaracion de url handlers
