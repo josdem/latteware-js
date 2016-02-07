@@ -103,6 +103,22 @@ application.post('/city/:city/:uuid/description', function(request, response){
   })
 })
 
+application.post('/city/:city/:uuid/remove', function(request, response){
+  Place.findOne({uuid:request.params.uuid}, function(error, place){
+    if(error){
+      return response.send(500, 'Internal Server Error')
+    }
+
+    place.remove(function(error){
+      if(error){
+        return response.send(500, 'I could not remove place')
+      }
+    })
+
+    response.redirect('/city/' + request.params.city)
+  })
+})
+
 
 application.listen(3000, function () {
    console.log('Example application listening on port 3000!')

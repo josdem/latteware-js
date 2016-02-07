@@ -14,7 +14,11 @@
     <p>City: {{advertise.city}}</p>
     <form action="/city/{{advertise.city}}/{{advertise.uuid}}/description" method="post">
       <p>Description:<textarea name="description">{{advertise.description}}</textarea></p>
-      <button type="submit">Update description</button>
+      <button type="submit">Update Description</button>
+    </form>
+    <br/>
+    <form action="/city/{{advertise.city}}/{{advertise.uuid}}/remove" method="post">
+      <button type="submit">Remove Advertising</button>
     </form>
   </body>
 </html>
