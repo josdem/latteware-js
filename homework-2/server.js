@@ -55,14 +55,14 @@ application.get('/city/:city', function(request, response){
 })
 
 application.get('/city/:city/:uuid', function(request, response){
-  Place.find({'uuid':request.params.uuid}, function(error, place){
+  Place.findOne({uuid:request.params.uuid}, function(error, place){
     if(error){
       return response.send(500, 'Internal Server Error')
     }
 
     response.render("advertise", {
       title: 'Advertise',
-      place: place
+      advertise: place
     })
   })
 })

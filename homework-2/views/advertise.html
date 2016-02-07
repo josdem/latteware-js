@@ -4,6 +4,12 @@
     <title>{{title}}</title>
   </head>
   <body>
-    Hello World!
+    <h1>Check {{ advertise.name }}</h1>
+    <p>Address: {{advertise.address}}</p>
+    <form action="/city/{{advertise.city}}/{{advertise.uuid}}/description" method="post">
+    <p>Description:<textarea name="description">{{advertise.description}}</textarea></p>
+    <p>City: {{advertise.city}}</p>
+    <button type="submit">Update description</button>
+    </form>
   </body>
 </html>
