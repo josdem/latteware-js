@@ -39,6 +39,19 @@ application.get('/listing', function (request, response) {
   })
 })
 
+application.get('/city/:city', function(request, response){
+  Place.find({}, function(error, places){
+    if(error){
+      return response.send(500, 'Internal Server Error')
+    }
+
+    response.render("city", {
+      title: 'City listing',
+      places: places
+    })
+  })
+})
+
 application.post('/create', function(request, response){
   Place.create({
     name: request.body.name,
