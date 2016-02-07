@@ -2,6 +2,7 @@ var express = require('express')
 var swig = require('swig')
 var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
+var uuid = require('uuid')
 
 var Schema = mongoose.Schema
 
@@ -11,7 +12,8 @@ var placeSchema = new Schema({
   name: String,
   description: String,
   address: String,
-  city: String
+  city: String,
+  uuid: {type: String, default: uuid.v4}
 })
 
 var Place = mongoose.model('Place', placeSchema)
