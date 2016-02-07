@@ -11,7 +11,7 @@ var placeSchema = new Schema({
   name: String,
   description: String,
   address: String,
-  city: Number
+  city: String
 })
 
 var Place = mongoose.model('Place', placeSchema)
@@ -40,7 +40,7 @@ application.get('/listing', function (request, response) {
 })
 
 application.get('/city/:city', function(request, response){
-  Place.find({}, function(error, places){
+  Place.find({'city':request.params.city}, function(error, places){
     if(error){
       return response.send(500, 'Internal Server Error')
     }

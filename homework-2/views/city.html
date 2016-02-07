@@ -4,6 +4,16 @@
    <title>{{title}}</title>
  </head>
  <body>
-   Hello World!
+   <a href="/">Home</a>
+   <br/>
+   <a href="/listing">Add new place</a>
+   {% for place in places %}
+   <ul>
+     <li>
+       <p>{{place.name}}</p>
+       <p>{{place.address}}</p>
+     </li>
+   </ul>
+   {% endfor %}
  </body>
 </html>
