@@ -83,6 +83,27 @@ application.post('/create', function(request, response){
   })
 })
 
+application.post('/city/:city/:uuid/description', function(request, response){
+  Place.findOne({uuid:request.params.uuid}, function(error, place){
+    if(error){
+      return response.send(500, 'Internal Server Error')
+    }
+
+    place.description = request.body.description
+    place.save(function(error){
+      if(error){
+        return response.send(500, 'I could not save place')
+      }
+    })
+
+    response.render("advertise", {
+      title: 'Advertise',
+      advertise: place
+    })
+  })
+})
+
+
 application.listen(3000, function () {
    console.log('Example application listening on port 3000!')
 })

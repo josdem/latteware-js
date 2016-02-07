@@ -5,11 +5,16 @@
   </head>
   <body>
     <h1>Check {{ advertise.name }}</h1>
+    <a href="/">Home</a>
+    <br/>
+    <a href="/listing">Add New Place</a>
+    <br/>
+    <a href="/city/mexico-city">Mexico City</a>
     <p>Address: {{advertise.address}}</p>
-    <form action="/city/{{advertise.city}}/{{advertise.uuid}}/description" method="post">
-    <p>Description:<textarea name="description">{{advertise.description}}</textarea></p>
     <p>City: {{advertise.city}}</p>
-    <button type="submit">Update description</button>
+    <form action="/city/{{advertise.city}}/{{advertise.uuid}}/description" method="post">
+      <p>Description:<textarea name="description">{{advertise.description}}</textarea></p>
+      <button type="submit">Update description</button>
     </form>
   </body>
 </html>
