@@ -30,6 +30,13 @@ app.get('/', function (request, response) {
   })
 })
 
+app.get('/listing', function (request, response) {
+  response.render("listing", {
+    title: "listing"
+  })
+})
+
+
 // Termina la declaracion de url handlers
 
 app.listen(3000, function () {
