@@ -1,0 +1,33 @@
+body{
+	background-color: white;
+}
+
+#main{
+	border:5px inset;
+}
+
+.header{
+	border: 1px solid lightgray;
+  font-size: 25px;
+  font-family: 'Lobster';
+}
+
+.body{
+	border: 1px solid lightgray;
+}
+
+.footer{
+	border: 1px solid lightgray;
+}
+
+.row{
+	border:5px dotted darkblue;
+	margin-bottom: 30px;
+}
+
+.row > * {
+	border: 1px solid black;
+	text-align: center;
+	padding: 20px;
+}
+
