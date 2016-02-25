@@ -1,0 +1,19 @@
+{
+  "name": "homework-2",
+  "version": "1.0.0",
+  "description": "Segunda tarea de latteware",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "josdem",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "inquirer": "^0.11.4",
+    "mongoose": "^4.3.7",
+    "swig": "^1.4.2",
+    "uuid": "^2.0.1"
+  }
+}

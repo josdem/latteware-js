@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <h1>Check {{ advertise.name }}</h1>
+    <a href="/">Home</a>
+    <br/>
+    <a href="/listing">Add New Place</a>
+    <br/>
+    <a href="/city/mexico-city">Mexico City</a>
+    <p>Address: {{advertise.address}}</p>
+    <p>City: {{advertise.city}}</p>
+    <form action="/city/{{advertise.city}}/{{advertise.uuid}}/description" method="post">
+      <p>Description:<textarea name="description">{{advertise.description}}</textarea></p>
+      <button type="submit">Update Description</button>
+    </form>
+    <br/>
+    <form action="/city/{{advertise.city}}/{{advertise.uuid}}/remove" method="post">
+      <button type="submit">Remove Advertising</button>
+    </form>
+  </body>
+</html>
