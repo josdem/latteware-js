@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-  </head>
-  <body>
-    <a href="/listing">Add New Place</a>
-    <br/><br/>
-    Cities:
-    <ul>
-      <li><a href="/city/mexico-city">Mexico City</a></li>
-      <li><a href="/city/guadalajara">Guadalajara</a></li>
-      <li><a href="/city/monterrey">Monterrey</a></li>
-    </ul>
-  </body>
-</html>
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to AirBnb</h1>
+  </div>
+</div>
+<a href="/listing">Add New Place</a>
+<br/><br/>
+Cities:
+<ul>
+  <li><a href="/city/mexico-city">Mexico City</a></li>
+  <li><a href="/city/guadalajara">Guadalajara</a></li>
+  <li><a href="/city/monterrey">Monterrey</a></li>
+</ul>
+{% endblock %}

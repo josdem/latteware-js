@@ -28,6 +28,7 @@ application.set('view cache', false)
 swig.setDefaults({cache:false})
 
 application.use( bodyParser.urlencoded({ extended:false }) )
+application.use('/assets', express.static('public'))
 
 application.get('/', function (request, response) {
   response.render("index", {
