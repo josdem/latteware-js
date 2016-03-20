@@ -53,11 +53,33 @@ swig.setDefaults({cache:false})
 application.use( bodyParser.urlencoded({ extended:false }) )
   application.use('/assets', express.static('public'))
 
-  application.get('/', function (request, response) {
-    response.render("index", {
-      title: "AirBnb"
+  application.use(function (req, res, next) {
+    if(!req.session.userId){
+      return next()
+    }
+
+    User.findOne({uuid: req.session.userId}, function(err, user){
+      if(err){
+        return res.send(500, 'Internal Server Error')
+      }
+
+      res.locals.user = user
+        next()
+    })
+  });
+
+application.get('/', function (req, res) {
+  User.find({}, function(err, users){
+    if(err){
+      return res.send(500, 'Internal Server Error')
+    }
+
+    res.render('index', {
+      title: "AirBnb",
+      users:users
     })
   })
+})
 
 application.get('/listing', function (request, response) {
   response.render("listing", {
@@ -221,6 +243,11 @@ application.post('/sign-up', function (req, res){
       })
     });
   })
+})
+
+application.get('/log-out', function (req, res){
+  req.session.destroy()
+    res.redirect('/')
 })
 
 application.listen(3000, function () {
