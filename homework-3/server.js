@@ -3,6 +3,7 @@ var swig = require('swig')
 var mongoose = require('mongoose')
 var bodyParser = require('body-parser')
 var uuid = require('uuid')
+var bcrypt = require('bcrypt-nodejs')
 
 var session = require('express-session')
 var MongoStore = require('express-session-mongo')
