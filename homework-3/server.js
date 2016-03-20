@@ -43,9 +43,9 @@ var application = express()
 
 application.use( flash() )
 
-application.engine('html', swig.renderFile)
-application.set('view engine', 'html')
-application.set('views', __dirname + '/views')
+  application.engine('html', swig.renderFile)
+  application.set('view engine', 'html')
+  application.set('views', __dirname + '/views')
 
   application.set('view cache', false)
 swig.setDefaults({cache:false})
@@ -151,6 +151,33 @@ application.get('/log-in', function (req, res){
     })
 })
 
+
+application.post('/log-in', function (req, res){
+  if(!req.body.username || !req.body.password){
+    req.flash('log-in-error', 'To log in you need a username and a password')
+      return res.redirect('/log-in')
+  }
+
+  User.findOne({username: req.body.username}, function(err, doc){
+    if(err){
+      return res.send(500, 'Internal Server Error')
+    }
+
+    if(!doc){
+      req.flash('log-in-error', 'Invalid user')
+        return res.redirect('/log-in')
+    }
+
+    bcrypt.compare(req.body.password, doc.password, function(err, result){
+      if(err){
+        return res.send(500, 'Internal Server Error')
+      }
+
+      req.session.userId = doc.uuid
+        res.redirect('/')
+    })
+  })
+})
 
 application.get('/sign-up', function (req, res){
   var error = res.locals.flash.pop()
