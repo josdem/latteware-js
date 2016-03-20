@@ -1,20 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <title>{{title}}</title>
-  <body>
-    <a href="/">Home</a>
-    <form action="/create" method="post">
-      <p>Listing name:<input type="text" name="name"></p>
-      <p>Description:<textarea name="description"></textarea></p>
-      <p>Address:<input type="text" name="address"></p>
-      City:
-      <select name="city">
-        <option value="mexico-city">Mexico City</option>
-        <option value="guadalajara">Guadalajara</option>
-        <option value="monterrey">Monterrey</option>
-      </select>
-      <br/><br/>
-      <button type="submit">Create Adertising</button>
-    </form>
-  </body>
-</html>
+{% extends 'layout.html' %}
+
+{% block content %}
+<br/><br/><br/>
+<div class="container">
+  <form action="/create" method="post" id="listing-form">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add new place</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label>Listing name</label>
+          <input type="text" class="form-control" name="name" placeholder="Enter your place name">
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <input type="text" class="form-control" name="address" placeholder="Address">
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" name="description" rows="3" placeholder="Describe your place"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>City</label>
+          <select class="form-control" name="city" placeholder="Describe your place">
+            <option value="mexico-city">Mexico City</option>
+            <option value="guadalajara">Guadalajara</option>
+            <option value="monterrey">Monterrey</option>
+          </select>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button type="submit" class="btn btn-primary">Create Adertising</button>
+      </div>
+    </div>
+</div>
+  </form>
+  </div>
+  {% endblock %}
