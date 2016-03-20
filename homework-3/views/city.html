@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html>
- <head>
-   <title>{{title}}</title>
- </head>
- <body>
-   <a href="/">Home</a>
-   <br/>
-   <a href="/listing">Add New Place</a>
-   {% for place in places %}
-   <ul>
-     <li>
-       <p><a href="/city/{{place.city}}/{{place.uuid}}">{{place.name}}</a></p>
-       <p>{{place.address}}</p>
-     </li>
-   </ul>
-   {% endfor %}
- </body>
+{% extends 'layout.html' %}
+
+
+{% block content %}
+{% for place in places %}
+
+<h3>Departamentos</h3>
+<ul>
+  <li>
+    <p><a href="/city/{{place.city}}/{{place.uuid}}">{{place.name}}</a></p>
+    <p>{{place.address}}</p>
+  </li>
+</ul>
+{% endfor %}
+</body>
 </html>
+{% endblock %}
