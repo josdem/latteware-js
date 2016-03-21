@@ -11,7 +11,7 @@ var flash = require('flash')
 
 var Schema = mongoose.Schema
 
-mongoose.connect('mongodb://localhost/homework-3')
+mongoose.connect('mongodb://airbnbUser:41rbnbDB@localhost:27017/airbnb')
 
 var userSchema = Schema({
   username: String,
